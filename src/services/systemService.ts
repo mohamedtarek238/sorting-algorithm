@@ -1,7 +1,7 @@
 // src/services/systemService.ts
 import { createLogger, transports, format } from 'winston';
 import { RateLimiterMemory } from 'rate-limiter-flexible';
-import LRU from 'lru-cache';
+import { LRUCache } from 'lru-cache';
 
 // register file info 
 export const logger = createLogger({
@@ -20,9 +20,9 @@ export const rateLimiter = new RateLimiterMemory({
 });
 
 // casheing system
-export const cache = new LRU<string, any>({
+export const cache = new LRUCache<string, any>({
   max: 1000,
-  maxAge: 1000 * 60 * 5,
+  ttl: 1000 * 60 * 5,
 });
 
 // handeling 

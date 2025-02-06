@@ -4,8 +4,8 @@ export const sortingStrategies = {
     quick: (arr: number[]): number[] => {
       if (arr.length <= 1) return arr;
       const pivot = arr[Math.floor(arr.length / 2)];
-      const left = [];
-      const right = [];
+      const left: number[] = [];
+      const right: number[] = [];
       
       const rest = arr.slice(0, Math.floor(arr.length / 2))
         .concat(arr.slice(Math.floor(arr.length / 2) + 1));
@@ -18,7 +18,7 @@ export const sortingStrategies = {
     // Merge Sort
     merge: (arr: number[]): number[] => {
       const merge = (left: number[], right: number[]) => {
-        const result = [];
+        const result: number[] = [];
         while (left.length && right.length) {
           left[0] < right[0] ? result.push(left.shift()!) : result.push(right.shift()!);
         }
@@ -172,7 +172,7 @@ export const sortingStrategies = {
       const minVal = Math.min(...arr);
       const maxVal = Math.max(...arr);
       const bucketCount = Math.floor((maxVal - minVal) / bucketSize) + 1;
-      const buckets = Array.from({ length: bucketCount }, () => []);
+      const buckets: number[][] = Array.from({ length: bucketCount }, () => []);
   
       for (const num of arr) {
         const index = Math.floor((num - minVal) / bucketSize);

@@ -7,7 +7,11 @@ import { handleError } from '../utils/errorHandler';
 
 export const sortData = async (req: Request, res: Response): Promise<void> => {
   try {
-    await rateLimiter.consume(req.ip);
+    if (req.ip) {
+      await rateLimiter.consume(req.ip);
+    } else {
+      throw new Error('IP address is undefined');
+    }
     const { data, algorithm, priority } = SortSchema.parse(req.body);
     
     const cacheKey = `${algorithm}:${data.join(',')}`;
