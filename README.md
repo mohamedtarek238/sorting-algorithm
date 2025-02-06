@@ -4,8 +4,9 @@ Welcome to the TS Team Dev training project. This repository is dedicated to imp
 
 ## Team Members
 
-- **Team Leader:** Mohsen Ali
+- **Team :** 
 - **Members:**
+  - Mohsen Ali
   - Mohamed
   - Jihad
   - Ahmed
