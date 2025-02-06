@@ -30,7 +30,7 @@ class PriorityQueue {
   private heap: Array<{ task: () => Promise<any>, priority: number }> = [];
   private priorityMap = { high: 1, medium: 2, low: 3 };
 
-  enqueue(task: () => Promise<any>, priority: string) {
+  enqueue(task: () => Promise<any>, priority: 'high' | 'medium' | 'low') {
     const priorityValue = this.priorityMap[priority];
     this.heap.push({ task, priority: priorityValue });
     this.heap.sort((a, b) => a.priority - b.priority);
